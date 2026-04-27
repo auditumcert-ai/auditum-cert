@@ -1,1 +1,1 @@
-# auditum-cert
+RO: Dr. Ing. Claudia Munteanu, Chartered Scientist și Lead Auditor IRCA, expert în audit, microbiologie, HACCP, GMP+, ISO 17025/22000 și traduceri tehnice. EN:Dr. Eng. Claudia Munteanu, Chartered Scientist and IRCA Lead Auditor, expert in auditing, microbiology, HACCP, GMP+, ISO 17025/22000 and technical translations.
