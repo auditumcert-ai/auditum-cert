@@ -1,1 +1,860 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AUDITUM CERT – Scientific & Technical Auditing Excellence</title>
+  <style>
+    :root {
+      --white: #ffffff;
+      --black-soft: #1a1a1a;
+      --grey-dark: #4a4a4a;
+      --grey-mid: #6e6e6e;
+      --green-main: #3cb371;
+      --bg-alt: #f7f7f7;
+      --border-light: #e0e0e0;
+      --radius: 6px;
+    }
 
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      color: var(--grey-dark);
+      background-color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--green-main);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: var(--black-soft);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      flex-wrap: wrap;
+    }
+
+    .main-nav a {
+      color: var(--grey-dark);
+    }
+
+    .main-nav a:hover {
+      color: var(--green-main);
+    }
+
+    .btn-nav {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--green-main);
+      color: var(--green-main);
+    }
+
+    /* LANGUAGE SWITCH */
+
+    .lang-switch {
+      display: flex;
+      gap: 6px;
+    }
+
+    .lang-btn {
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      background-color: var(--white);
+      padding: 4px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      color: var(--grey-mid);
+    }
+
+    .lang-btn.active {
+      border-color: var(--green-main);
+      color: var(--green-main);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .hero-text h1 {
+      font-size: 40px;
+      margin: 0 0 8px;
+      color: var(--black-soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-text h2 {
+      font-size: 20px;
+      margin: 0 0 16px;
+      color: var(--grey-mid);
+    }
+
+    .hero-line {
+      width: 80px;
+      height: 3px;
+      background-color: var(--green-main);
+      margin-bottom: 16px;
+    }
+
+    .hero-text p {
+      max-width: 520px;
+      margin-bottom: 24px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background-color: var(--green-main);
+      color: var(--white);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-primary:hover {
+      background-color: #34a066;
+    }
+
+    /* SECTIONS */
+
+    .section {
+      padding: 60px 0;
+    }
+
+    .section-alt {
+      background-color: var(--bg-alt);
+    }
+
+    .section h2 {
+      font-size: 24px;
+      margin-bottom: 24px;
+      color: var(--black-soft);
+    }
+
+    /* CARDS GRID */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border-light);
+      padding: 18px;
+      background-color: var(--white);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 16px;
+      color: var(--black-soft);
+    }
+
+    /* TWO COLUMNS */
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    /* SERVICES */
+
+    .service-block {
+      border-top: 1px solid var(--border-light);
+      padding: 20px 0;
+    }
+
+    .service-block h3 {
+      margin: 0 0 8px;
+      color: var(--black-soft);
+    }
+
+    .service-block p {
+      margin: 0 0 8px;
+    }
+
+    /* INDUSTRIES */
+
+    .industries-list {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 6px 18px;
+    }
+
+    .industries-list li::before {
+      content: "• ";
+      color: var(--green-main);
+    }
+
+    /* CONTACT FORM */
+
+    .contact-form {
+      max-width: 720px;
+      margin-top: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: var(--grey-mid);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      border-radius: var(--radius);
+      border: 1px solid var(--border-light);
+      padding: 8px 10px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: 1px solid var(--green-main);
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      border-top: 1px solid var(--border-light);
+      padding: 16px 0;
+      background-color: var(--white);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--grey-mid);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .header-inner {
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+
+      .main-nav {
+        order: 3;
+      }
+
+      .lang-switch {
+        order: 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero-text h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body data-lang="ro">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <!-- Înlocuiește AC cu logo-ul tău grafic dacă ai fișier imagine -->
+        <span class="logo-mark">AC</span>
+        <span class="logo-text">AUDITUM CERT</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#home" data-ro="Acasă" data-en="Home">Acasă</a>
+        <a href="#about" data-ro="Despre" data-en="About">Despre</a>
+        <a href="#services" data-ro="Servicii" data-en="Services">Servicii</a>
+        <a href="#training" data-ro="Traininguri" data-en="Training">Traininguri</a>
+        <a href="#industries" data-ro="Industrii" data-en="Industries">Industrii</a>
+        <a href="#resources" data-ro="Resurse" data-en="Resources">Resurse</a>
+        <a href="#contact" class="btn-nav" data-ro="Contact" data-en="Contact">Contact</a>
+      </nav>
+      <div class="lang-switch">
+        <button type="button" class="lang-btn active" data-lang-btn="ro">RO</button>
+        <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>AUDITUM CERT</h1>
+          <h2 data-ro="Excelență în audit tehnic și științific"
+              data-en="Scientific & Technical Auditing Excellence">
+            Excelență în audit tehnic și științific
+          </h2>
+          <div class="hero-line"></div>
+          <p
+            data-ro="Audituri, consultanță și expertiză științifică pentru industriile alimentară, furajeră, agricolă, de laborator și industrială. Rigoare. Conformitate. Excelență."
+            data-en="Auditing, consulting and scientific expertise for the food, feed, agriculture, laboratory and industrial sectors. Rigour. Compliance. Excellence.">
+            Audituri, consultanță și expertiză științifică pentru industriile alimentară, furajeră, agricolă, de laborator și industrială. Rigoare. Conformitate. Excelență.
+          </p>
+          <a href="#contact" class="btn-primary"
+             data-ro="Solicită ofertă"
+             data-en="Request a quote">
+            Solicită ofertă
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="section" id="why">
+      <div class="container">
+        <h2 data-ro="De ce să alegi AUDITUM CERT"
+            data-en="Why choose AUDITUM CERT">
+          De ce să alegi AUDITUM CERT
+        </h2>
+        <div class="cards-grid">
+          <div class="card">
+            <h3>Chartered Scientist (CSci)</h3>
+            <p data-ro="Expertiză științifică certificată internațional."
+               data-en="Internationally certified scientific expertise.">
+              Expertiză științifică certificată internațional.
+            </p>
+          </div>
+          <div class="card">
+            <h3>IRCA Lead Auditor</h3>
+            <p data-ro="Audituri conforme cu standardele globale."
+               data-en="Audits aligned with global standards.">
+              Audituri conforme cu standardele globale.
+            </p>
+          </div>
+          <div class="card">
+            <h3 data-ro="Expertiză tehnică reală"
+                data-en="Technical expertise">
+              Expertiză tehnică reală
+            </h3>
+            <p data-ro="Microbiologie, QA/QC, feed safety, HACCP."
+               data-en="Microbiology, QA/QC, feed safety, HACCP.">
+              Microbiologie, QA/QC, feed safety, HACCP.
+            </p>
+          </div>
+          <div class="card">
+            <h3 data-ro="Abordare bazată pe evidențe"
+                data-en="Evidence-based approach">
+              Abordare bazată pe evidențe
+            </h3>
+            <p data-ro="Analiză, rigoare, conformitate, rezultate."
+               data-en="Analysis, rigour, compliance, results.">
+              Analiză, rigoare, conformitate, rezultate.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section section-alt" id="about">
+      <div class="container">
+        <h2 data-ro="Despre noi" data-en="About us">Despre noi</h2>
+        <div class="two-cols">
+          <div>
+            <h3 data-ro="Cine suntem" data-en="Who we are">Cine suntem</h3>
+            <p
+              data-ro="AUDITUM CERT este o firmă de audit tehnic și științific, specializată în evaluarea conformității pentru industriile alimentară, furajeră, agricolă, de laborator și industrială. Ne bazăm pe rigoare, integritate și excelență profesională."
+              data-en="AUDITUM CERT is a scientific and technical auditing firm, specialised in conformity assessment for the food, feed, agriculture, laboratory and industrial sectors. We operate with rigour, integrity and professional excellence.">
+              AUDITUM CERT este o firmă de audit tehnic și științific, specializată în evaluarea conformității pentru industriile alimentară, furajeră, agricolă, de laborator și industrială. Ne bazăm pe rigoare, integritate și excelență profesională.
+            </p>
+          </div>
+          <div>
+            <h3
+              data-ro="Fondator – Dr. Ing. Claudia Maria Munteanu, CSci"
+              data-en="Founder – Dr. Eng. Claudia Maria Munteanu, CSci">
+              Fondator – Dr. Ing. Claudia Maria Munteanu, CSci
+            </h3>
+            <p
+              data-ro="Fondatorul AUDITUM CERT este Chartered Scientist (CSci), IRCA Lead Auditor și specialist în microbiologie, QA/QC, HACCP, feed safety și sisteme de management. Cu experiență în România, UK și UE, oferim o abordare unică: audituri bazate pe știință, evidențe și standarde internaționale."
+              data-en="The founder of AUDITUM CERT is a Chartered Scientist (CSci), IRCA Lead Auditor and specialist in microbiology, QA/QC, HACCP, feed safety and management systems. With experience in Romania, the UK and the EU, we provide a unique approach: audits based on science, evidence and international standards.">
+              Fondatorul AUDITUM CERT este Chartered Scientist (CSci), IRCA Lead Auditor și specialist în microbiologie, QA/QC, HACCP, feed safety și sisteme de management. Cu experiență în România, UK și UE, oferim o abordare unică: audituri bazate pe știință, evidențe și standarde internaționale.
+            </p>
+            <h4 data-ro="Valorile noastre" data-en="Our values">Valorile noastre</h4>
+            <ul>
+              <li data-ro="Rigoare – fiecare detaliu contează."
+                  data-en="Rigour – every detail matters.">
+                Rigoare – fiecare detaliu contează.
+              </li>
+              <li data-ro="Conformitate – respectăm standardele internaționale."
+                  data-en="Compliance – we follow international standards.">
+                Conformitate – respectăm standardele internaționale.
+              </li>
+              <li data-ro="Excelență – livrăm rezultate premium."
+                  data-en="Excellence – we deliver premium results.">
+                Excelență – livrăm rezultate premium.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="container">
+        <h2 data-ro="Servicii" data-en="Services">Servicii</h2>
+
+        <div class="service-block">
+          <h3>Food Safety</h3>
+          <p
+            data-ro="Servicii complete pentru industria alimentară, bazate pe expertiză științifică și experiență practică."
+            data-en="Comprehensive services for the food industry, based on scientific expertise and practical experience.">
+            Servicii complete pentru industria alimentară, bazate pe expertiză științifică și experiență practică.
+          </p>
+          <ul>
+            <li data-ro="Audituri interne ISO 22000 / FSSC"
+                data-en="Internal audits ISO 22000 / FSSC">
+              Audituri interne ISO 22000 / FSSC
+            </li>
+            <li data-ro="HACCP: analiză, implementare, verificare"
+                data-en="HACCP: analysis, implementation, verification">
+              HACCP: analiză, implementare, verificare
+            </li>
+            <li data-ro="Validări microbiologice"
+                data-en="Microbiological validations">
+              Validări microbiologice
+            </li>
+            <li data-ro="Evaluări riscuri biologice"
+                data-en="Biological risk assessments">
+              Evaluări riscuri biologice
+            </li>
+            <li data-ro="Traininguri pentru personal"
+                data-en="Staff training">
+              Traininguri pentru personal
+            </li>
+          </ul>
+        </div>
+
+        <div class="service-block">
+          <h3>Feed Safety (GMP+)</h3>
+          <p
+            data-ro="Expertiză avansată în microbiologia furajelor și cerințele GMP+."
+            data-en="Advanced expertise in feed microbiology and GMP+ requirements.">
+            Expertiză avansată în microbiologia furajelor și cerințele GMP+.
+          </p>
+          <ul>
+            <li data-ro="Audituri interne GMP+ FSA"
+                data-en="Internal audits GMP+ FSA">
+              Audituri interne GMP+ FSA
+            </li>
+            <li data-ro="HACCP feed"
+                data-en="Feed HACCP">
+              HACCP feed
+            </li>
+            <li data-ro="Evaluări microbiologice furaje"
+                data-en="Microbiological feed assessments">
+              Evaluări microbiologice furaje
+            </li>
+            <li data-ro="Consultanță pentru ferme, fabrici, transportatori"
+                data-en="Consulting for farms, factories, transport companies">
+              Consultanță pentru ferme, fabrici, transportatori
+            </li>
+          </ul>
+        </div>
+
+        <div class="service-block">
+          <h3>Laboratoare – ISO 17025</h3>
+          <p
+            data-ro="Servicii dedicate laboratoarelor care urmăresc competență tehnică și conformitate cu ISO 17025."
+            data-en="Services dedicated to laboratories seeking technical competence and ISO 17025 compliance.">
+            Servicii dedicate laboratoarelor care urmăresc competență tehnică și conformitate cu ISO 17025.
+          </p>
+          <ul>
+            <li data-ro="Audituri interne ISO 17025"
+                data-en="Internal audits ISO 17025">
+              Audituri interne ISO 17025
+            </li>
+            <li data-ro="Evaluarea competenței tehnice"
+                data-en="Technical competence assessment">
+              Evaluarea competenței tehnice
+            </li>
+            <li data-ro="Validări metode"
+                data-en="Method validation">
+              Validări metode
+            </li>
+            <li data-ro="Incertețea de măsurare"
+                data-en="Measurement uncertainty">
+              Incertețea de măsurare
+            </li>
+            <li data-ro="Training tehnic"
+                data-en="Technical training">
+              Training tehnic
+            </li>
+          </ul>
+        </div>
+
+        <div class="service-block">
+          <h3>Agricultură – GLOBALG.A.P.</h3>
+          <p
+            data-ro="Conformitate pentru ferme și producători primari, cu focus pe siguranță, trasabilitate și bune practici."
+            data-en="Compliance for farms and primary producers, with focus on safety, traceability and good practices.">
+            Conformitate pentru ferme și producători primari, cu focus pe siguranță, trasabilitate și bune practici.
+          </p>
+          <ul>
+            <li data-ro="Audituri interne GLOBALG.A.P. IFA"
+                data-en="Internal audits GLOBALG.A.P. IFA">
+              Audituri interne GLOBALG.A.P. IFA
+            </li>
+            <li>GRASP</li>
+            <li data-ro="Evaluări riscuri în ferme"
+                data-en="Farm risk assessments">
+              Evaluări riscuri în ferme
+            </li>
+            <li data-ro="Implementare standarde"
+                data-en="Standard implementation">
+              Implementare standarde
+            </li>
+          </ul>
+        </div>
+
+        <div class="service-block">
+          <h3
+            data-ro="Sisteme integrate (industrie)"
+            data-en="Integrated systems (industry)">
+            Sisteme integrate (industrie)
+          </h3>
+          <p
+            data-ro="Audituri integrate pentru organizații care urmăresc eficiență și conformitate multi-standard."
+            data-en="Integrated audits for organisations seeking efficiency and multi-standard compliance.">
+            Audituri integrate pentru organizații care urmăresc eficiență și conformitate multi-standard.
+          </p>
+          <ul>
+            <li>ISO 9001</li>
+            <li>ISO 14001</li>
+            <li>ISO 45001</li>
+            <li data-ro="Evaluări riscuri operaționale"
+                data-en="Operational risk assessments">
+              Evaluări riscuri operaționale
+            </li>
+            <li data-ro="Traininguri SSM"
+                data-en="OHS training">
+              Traininguri SSM
+            </li>
+          </ul>
+        </div>
+
+        <div class="service-block">
+          <h3
+            data-ro="Servicii premium (CSci)"
+            data-en="Premium services (CSci)">
+            Servicii premium (CSci)
+          </h3>
+          <p
+            data-ro="Expertiză științifică de nivel înalt pentru situații complexe și proiecte strategice."
+            data-en="High-level scientific expertise for complex situations and strategic projects.">
+            Expertiză științifică de nivel înalt pentru situații complexe și proiecte strategice.
+          </p>
+          <ul>
+            <li data-ro="Expertiză tehnică pentru litigii"
+                data-en="Technical expertise for litigation">
+              Expertiză tehnică pentru litigii
+            </li>
+            <li data-ro="Evaluări științifice independente"
+                data-en="Independent scientific assessments">
+              Evaluări științifice independente
+            </li>
+            <li data-ro="Due diligence tehnic"
+                data-en="Technical due diligence">
+              Due diligence tehnic
+            </li>
+            <li data-ro="Audituri pentru export"
+                data-en="Export audits">
+              Audituri pentru export
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAINING -->
+    <section class="section section-alt" id="training">
+      <div class="container">
+        <h2 data-ro="Traininguri profesionale"
+            data-en="Professional training">
+          Traininguri profesionale
+        </h2>
+        <p
+          data-ro="Programe de instruire adaptate industriei, livrate cu rigoare științifică și aplicabilitate practică."
+          data-en="Industry-tailored training programmes delivered with scientific rigour and practical applicability.">
+          Programe de instruire adaptate industriei, livrate cu rigoare științifică și aplicabilitate practică.
+        </p>
+        <div class="cards-grid">
+          <div class="card">
+            <h3>HACCP</h3>
+            <p data-ro="Fundamente, analiză de risc, implementare și verificare."
+               data-en="Fundamentals, risk analysis, implementation and verification.">
+              Fundamente, analiză de risc, implementare și verificare.
+            </p>
+          </div>
+          <div class="card">
+            <h3>GMP+ FSA</h3>
+            <p data-ro="Siguranța furajelor și cerințe specifice GMP+."
+               data-en="Feed safety and specific GMP+ requirements.">
+              Siguranța furajelor și cerințe specifice GMP+.
+            </p>
+          </div>
+          <div class="card">
+            <h3>ISO 22000</h3>
+            <p data-ro="Sistem de management al siguranței alimentului."
+               data-en="Food safety management system.">
+              Sistem de management al siguranței alimentului.
+            </p>
+          </div>
+          <div class="card">
+            <h3>ISO 17025</h3>
+            <p data-ro="Competență tehnică și managementul laboratoarelor."
+               data-en="Technical competence and laboratory management.">
+              Competență tehnică și managementul laboratoarelor.
+            </p>
+          </div>
+          <div class="card">
+            <h3
+              data-ro="Igienă și siguranță alimentară"
+              data-en="Food hygiene and safety">
+              Igienă și siguranță alimentară
+            </h3>
+            <p data-ro="Principii, practici și conformitate."
+               data-en="Principles, practices and compliance.">
+              Principii, practici și conformitate.
+            </p>
+          </div>
+          <div class="card">
+            <h3
+              data-ro="Bune practici în laboratoare"
+              data-en="Good laboratory practices">
+              Bune practici în laboratoare
+            </h3>
+            <p data-ro="Proceduri, trasabilitate, controlul calității."
+               data-en="Procedures, traceability, quality control.">
+              Proceduri, trasabilitate, controlul calității.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="section" id="industries">
+      <div class="container">
+        <h2 data-ro="Industrii deservite"
+            data-en="Industries served">
+          Industrii deservite
+        </h2>
+        <p
+          data-ro="Oferim servicii specializate pentru:"
+          data-en="We provide specialised services for:">
+          Oferim servicii specializate pentru:
+        </p>
+        <ul class="industries-list">
+          <li data-ro="Industria alimentară" data-en="Food industry">Industria alimentară</li>
+          <li data-ro="Furaje și agricultură" data-en="Feed & agriculture">Furaje și agricultură</li>
+          <li data-ro="Laboratoare" data-en="Laboratories">Laboratoare</li>
+          <li data-ro="Producție industrială" data-en="Industrial manufacturing">Producție industrială</li>
+          <li data-ro="Transport și logistică" data-en="Transport & logistics">Transport și logistică</li>
+          <li data-ro="Retail & export" data-en="Retail & export">Retail & export</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="section section-alt" id="resources">
+      <div class="container">
+        <h2 data-ro="Resurse" data-en="Resources">Resurse</h2>
+        <p
+          data-ro="În curând: articole, ghiduri, checklist-uri, noutăți legislative și răspunsuri la întrebări frecvente."
+          data-en="Coming soon: articles, guides, checklists, regulatory updates and answers to frequently asked questions.">
+          În curând: articole, ghiduri, checklist-uri, noutăți legislative și răspunsuri la întrebări frecvente.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 data-ro="Contact" data-en="Contact">Contact</h2>
+        <p
+          data-ro="Pentru audituri, consultanță sau traininguri, trimite-ne un mesaj și te vom contacta în cel mai scurt timp."
+          data-en="For audits, consulting or training, send us a message and we will get back to you shortly.">
+          Pentru audituri, consultanță sau traininguri, trimite-ne un mesaj și te vom contacta în cel mai scurt timp.
+        </p>
+        <form class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" data-ro="Nume" data-en="Name">Nume</label>
+              <input type="text" id="name" name="name" placeholder="Numele tău" />
+            </div>
+            <div class="form-group">
+              <label for="email" data-ro="Email" data-en="Email">Email</label>
+              <input type="email" id="email" name="email" placeholder="email@exemplu.com" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone" data-ro="Telefon" data-en="Phone">Telefon</label>
+              <input type="text" id="phone" name="phone" placeholder="+40 ..." />
+            </div>
+            <div class="form-group">
+              <label for="subject" data-ro="Subiect" data-en="Subject">Subiect</label>
+              <input type="text" id="subject" name="subject" placeholder="Subiectul mesajului" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message" data-ro="Mesaj" data-en="Message">Mesaj</label>
+            <textarea id="message" name="message" rows="5"
+                      placeholder="Scrie mesajul tău aici"></textarea>
+          </div>
+          <button type="submit" class="btn-primary"
+                  data-ro="Trimite mesaj"
+                  data-en="Send message">
+            Trimite mesaj
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="logo-text">AUDITUM CERT</span>
+        <p data-ro="Excelență în audit tehnic și științific"
+           data-en="Scientific & Technical Auditing Excellence">
+          Excelență în audit tehnic și științific
+        </p>
+      </div>
+      <div class="footer-right">
+        <p>
+          © <span id="year"></span> AUDITUM CERT.
+          <span data-ro="Toate drepturile rezervate."
+                data-en="All rights reserved.">
+            Toate drepturile rezervate.
+          </span>
+        </p>
+      </div>
+    </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const root = document.body;
+      const langButtons = document.querySelectorAll('[data-lang-btn]');
+      const translatable = document.querySelectorAll('[data-ro][data-en]');
+
+      function setLang(lang) {
+        root.setAttribute('data-lang', lang);
+        translatable.forEach(el => {
+          el.textContent = el.getAttribute(lang === 'ro' ? 'data-ro' : 'data-en');
+        });
+        langButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+        });
+      }
+
+      langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          setLang(btn.getAttribute('data-lang-btn'));
+        });
+      });
+    </script>
+  </footer>
+</body>
+</html>
